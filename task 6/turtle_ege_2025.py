@@ -40,8 +40,6 @@ for x in range(-80, 8):
 		if  (-80 <= x <= 3 and -6 <= y <= 72) or  (0 <= x <= 8 and -12 <= y <= 0):
 			dot(3, 'red')
 			k += 1
-		else:
-			dot(3, 'green')
 print(k)
 done()
 
