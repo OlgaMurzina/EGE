@@ -12,7 +12,7 @@ for n in range(901, 1000):
     digs = sorted([int(nn[0]), int(nn[1]), int(nn[2])])
     # n = 562 [2, 5, 6]  65  25   65 - 25 = 40
     # n = 473 [3, 4, 7]  74  34
-    # n = 900   90  90
+    # n = 900   90  00  ---
     maxx = digs[-1] * 10 + digs[1]
     minn = digs[0] * 10 + digs[1]
     if maxx - minn == 70:

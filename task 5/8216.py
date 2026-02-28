@@ -30,5 +30,6 @@ for n in range(1, 1000):
     r = int(nn, 4)
     if r < 598:
        ans.append((r, n))
+print(ans)
 print([x for x in ans if x[0] == 597])
 print(max(ans))
