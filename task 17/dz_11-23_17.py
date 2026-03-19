@@ -5,7 +5,7 @@
 В ответе запишите количество найденных пар, затем максимальную из сумм элементов таких пар.
 В данной задаче под парой подразумевается два идущих подряд элемента последовательности.'''
 
-data = [int(x) for x in open('/home/dmurzin/Downloads/17.txt').readlines()]
+data = [int(x) for x in open('17.txt').readlines()]
 
 max2026 = max([x for x in data if x % 2026 == 0])
 ans = []

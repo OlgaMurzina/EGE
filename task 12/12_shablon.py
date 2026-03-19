@@ -2,7 +2,6 @@
 
 from itertools import product
 
-print('Start      end')
 res = []
 # подготовка всех возможных вариантов входной строки на небольшой длине
 for p in product(['0', '1'], repeat=10):
@@ -10,16 +9,16 @@ for p in product(['0', '1'], repeat=10):
     lenta = [' '] + list(p) + [' ']
     # реализация МТ в соответствие с условием задачи
     lenta_start = list(lenta)   # начальная строка
-    state = 0    # начальное состояние q0
+    q = 0    # начальное состояние q0
     cur_index = 11   # начальное положение каретки
     # имитация бесконечной ленты
     while True:
-        if state == 0:   # q0
+        if q == 0:   # q0
             if lenta[cur_index] == ' ':
                 lenta[cur_index] = ' '   # замена
                 cur_index -= 1    # сдвиг каретки
-                state = 1    # смена состояния
-        if state == 1:   # q1
+                q = 1    # смена состояния
+        if q == 1:   # q1
             if lenta[cur_index] == ' ':
                 lenta[cur_index] = ' '  # замена
                 break    # stop
@@ -29,10 +28,9 @@ for p in product(['0', '1'], repeat=10):
             elif lenta[cur_index] == '0':
                 lenta[cur_index] = '1'   # замена
                 cur_index -= 1   # сдвиг каретки
-                state = 1   # смена состояния
+                q = 1   # смена состояния
     # подготовка вывода данных для визуального анализа - что пришло, что полуилось
     lenta_start = ''.join(lenta_start).strip()
     lenta = ''.join(lenta).strip()
     print(lenta_start, lenta)
-    print(int(lenta_start, 2), int(lenta, 2), sep='          ')
-    print()
+
