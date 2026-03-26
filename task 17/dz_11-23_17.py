@@ -15,3 +15,16 @@ for i in range(len(data) - 1):
             ans.append((data[i] + data[i + 1], data[i], data[i + 1]))
 
 print(len(ans), max(ans)[0])
+
+f = [int(i) for i in open('17.txt').readlines()]
+#  максимальный элемент последовательности, кратный 2026
+mx = max([x for x in f if x % 2026 == 0])
+k = 0
+s = -10000000000
+for i in range(len(f) - 1):
+    # только один из элементов является положительным числом
+    if f[i] > 0 and f[i + 1] <= 0 and f[i] + f[i + 1] <= mx or f[i + 1] > 0 and f[i] <= 0 and f[i] + f[i + 1] <= mx:
+        k += 1
+        if f[i] + f[i + 1] > s:
+            s = f[i] + f[i + 1]
+print(k, s)

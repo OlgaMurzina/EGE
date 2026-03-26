@@ -16,13 +16,44 @@ def good(n) -> int:
     return min(de) + max(de) or 0
 
 from fnmatch import fnmatch
+from datetime import datetime
+from itertools import *
 
-mask = '6?38*9?5'
+t1 = datetime.now()
+mask = '6?38*9?5'   # 6038905
 # маске соответствуют только нечетные множители, переберем их
-for i in range(3105, 5141390, 2):
+for i in range(3105, 5141390, 2):   # начало: 6038905 // 1945, конец 10 ** 10 // 1945
     x = i * 1945
     if fnmatch(str(x), mask):
         m = good(x)
         if m % 1000 == 792:
             print(x, sum(int(y) for y in str(m)))
+t2 = datetime.now()
+print(t2 - t1)
 
+# вариант с генерацией всех чисел до 10 ** 10 по маске
+t1 = datetime.now()
+# перебираем числа вида 6х389у5, т.е. вместо звездочки ничего не ставим
+for x in range(10):
+    for y in range(10):
+        num = int(f'6{x}389{y}5')
+        if num % 1945 == 0:
+            m = good(num)
+            if m % 1000 == 792:
+                print(num, sum(int(a) for a in str(m)))
+# перебираем все числа вида 6х38z9у5, где вместо звездочки берем все вомзожные комбинации из алфавита 0..9 длиной от 1 до 3
+for x in range(10):
+    for y in range(10):
+        # нельзя range(1000), т.к. числа теряют ведущие нули
+        # перебор по длине repeat - от 1 до 3 (известных цифр 7, нужно еще от 1 до 3 добавлять)
+        for j in range(1, 4):
+            # все возможные комбинации из алфавита с разной длиной и подстановкой в f-строку
+            for z in product('0123456789', repeat=j):
+                num = int(f'6{x}38{''.join(z)}9{y}5')
+                if num % 1945 == 0:
+                    m = good(num)
+                    if m % 1000 == 792:
+                        # потом нужна ручная сортировка или можно класть в анс, но потом тоже нужна сортировка
+                        print(num, sum(int(a) for a in str(m)))
+    t2 = datetime.now()
+print(t2 - t1)
