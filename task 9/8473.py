@@ -4,7 +4,7 @@
 – шесть чисел строки после перестановки могут образовать арифметическую прогрессию.
 В ответе запишите только число.'''
 
-data1 = open('/home/dmurzin/Downloads/9-259.csv').readlines()
+data1 = open('9-259.csv').readlines()
 data = []
 for st in data1:
     s = [int(x) for x in st.split(';')]
