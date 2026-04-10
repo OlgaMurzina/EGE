@@ -27,6 +27,7 @@ for x, y in data:
     if y < 3:
         cl1.append((x, y))
     else:
+
         cl2.append((x, y))
 print(len(cl1), len(cl2), len(data) - (len(cl1) + len(cl2)))
 
