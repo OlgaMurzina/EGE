@@ -9,6 +9,8 @@ q1  λSq1   1Rq1   0Rq1
 
 from itertools import product
 
+k = 6
+ans = []
 # 1010110 -> 0101001
 for p in product('01', repeat=10):
     s = [' '] + list(p) + [' ']
@@ -33,5 +35,8 @@ for p in product('01', repeat=10):
                 s[i] = '0'
                 i += 1
                 q = 1
-    print(''.join(st), ''.join(s))
+    # print(''.join(st), ''.join(s))
+    if s.count('0') == k:
+        ans.append((k, ''.join(st), ''.join(s)))
 # 1000 - 515 = 485
+print(*ans, sep='\n')

@@ -18,7 +18,7 @@ for p in product(['0', '1'], repeat=10):
                 lenta[cur_index] = ' '   # замена
                 cur_index -= 1    # сдвиг каретки
                 q = 1    # смена состояния
-        if q == 1:   # q1
+        elif q == 1:   # q1
             if lenta[cur_index] == ' ':
                 lenta[cur_index] = ' '  # замена
                 break    # stop
