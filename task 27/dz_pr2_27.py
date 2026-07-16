@@ -1,3 +1,7 @@
+'''
+
+'''
+
 def center(cl):
     minn = 10**20
     p = None

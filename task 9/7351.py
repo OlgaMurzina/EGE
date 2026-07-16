@@ -4,7 +4,7 @@
 – число в данной ячейке встречается в данном столбце, включая данную ячейку, больше 180 раз.
 Определите количество интересных ячеек в таблице. В ответе запишите только число.'''
 
-data1 = open('/home/dmurzin/Downloads/9-228.csv').readlines()
+data1 = open('9-228.csv').readlines()
 data = []
 for st in data1:
     s = [int(x) for x in st.split(';')]
@@ -18,11 +18,10 @@ for j in range(6):
         data_tr.append(s)
 
 ans = []
-for i in range(len(data)):
-    st = data[i]
-    for j in range(6):
-        if st.count(st[j]) == 1:
-            if data_tr[j].count(st[j]) > 180:
-                ans.append(st[j])
-                print(st[j])
+for st in data:
+    for i in range(6):
+        if st.count(st[i]) == 1:
+            if data_tr[i].count(st[i]) > 180:
+                ans.append(st[i])
+                break
 print(len(ans))

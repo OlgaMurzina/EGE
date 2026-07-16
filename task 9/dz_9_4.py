@@ -12,11 +12,11 @@ for st in data1:
     s = [int(x) for x in st.split(";")]
     data.append(s)
 ans = []
-for i in range(len(data)):
-    s = data[i]
-    a = sorted([s.count(x) for x in set(s)])
-    if a == [1, 1, 1, 2, 2]:
-        tr = [x for x in s if s.count(x) == 1]
-        if sum(tr) / 3 <= sum(s) / 7:
+for st in data:
+    s = sorted(st)
+    dv = [x for x in s if s.count(x) == 2]
+    unique = [x for x in s if s.count(x) == 1]
+    if len(dv) == 4 and len(unique) == 3:
+        if sum(unique) / 3 <= sum(s) / 7:
             ans.append(s)
 print(len(ans))

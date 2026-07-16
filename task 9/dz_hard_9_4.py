@@ -4,13 +4,18 @@
 всех её чисел.
 В ответе запишите только число.'''
 
-data1 = open('9__4.csv').readlines()
+data1 = open('9.csv').readlines()
 data = []
+data_all = []
 for st in data1:
     s = [int(x) for x in st.split(';')]
     data.append(s)
-# print(data)
+    data_all.extend(s)
+print(data[:7])
+print(data_all[:7])
+print(max(data), max(data_all))
 
+'''
 ans = []
 for i in range(len(data)):
     st = sorted(data[i])
@@ -22,4 +27,4 @@ for i in range(len(data)):
         if avg_unq <= avg:
             ans.append(st)
 print(len(ans))
-# print(ans)
+# print(ans)'''

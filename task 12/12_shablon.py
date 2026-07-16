@@ -34,3 +34,30 @@ for p in product(['0', '1'], repeat=10):
     lenta = ''.join(lenta).strip()
     print(lenta_start, lenta)
 
+
+    # шаблон через строку для МТ:
+    # реализация через строку - для направления справа налево нужно делать разворот строки и изменять сдвиг каретки
+tabl = {0: {' ': ['*', 1, 1]},
+        1: {' ': ['1', 1, 2],
+            '0': ['1', 0, 1],
+            '1': ['0', 1, 1]},
+        2: {' ': ['*', 0, 2]}
+        }
+
+st = (' ' + bin(2047)[2:] + ' ')[::-1]
+print(st)
+print()
+q = 0
+i = 0
+while i < len(st):
+    symb = st[i]
+    st = st.replace(st[i], tabl[q][symb][0], 1)
+    if tabl[q][symb][1] == 0:
+        break
+    i += tabl[q][symb][1]
+    q = tabl[q][symb][2]
+    print(st)
+print()
+st = st.replace('*', '')[::-1]
+print(st)
+

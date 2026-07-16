@@ -3,17 +3,17 @@
 – число в данной ячейке не повторяется в ячейках этой строки;
 – число в данной ячейке встречается ровно 7 раз в других ячейках всей таблицы.'''
 
-data1 = open('/home/dmurzin/Downloads/9-202.csv').readlines()
+data1 = open('9-202.csv').readlines()
 data = []
+data_all = []
 for st in data1:
-    data.append([int(x) for x in st.split(';')])
+    s = [int(x) for x in st.split(';')]
+    data.append(s)
+    data_all.extend(s)
 print(data[:5])
+print(data_all[:30])
 
-data2 = []
-for st in data1:
-    data2.extend([int(x) for x in st.split(';')])
-print(data2[:25])
-
+'''
 ans = []
 for st in data:
     k = 0
@@ -23,4 +23,4 @@ for st in data:
                 k += 1
     if k > 0:
         ans.append(st)
-print(len(ans))
+print(len(ans))'''

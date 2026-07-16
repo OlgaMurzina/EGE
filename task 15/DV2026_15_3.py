@@ -5,8 +5,8 @@
 ans = []
 for a in range(1, 500):
     f = 1
-    for x in range(1, 1000):
-        for y in range(500):
+    for x in range(1, 500):
+        for y in range(1, 500):
             if ((y > 10) or (x * a > y + x)) == 0:
                 f = 0
                 break

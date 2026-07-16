@@ -61,9 +61,9 @@ for x, y, t in data:
 p1 = center(cl1)
 p2 = center(cl2)
 bel51 = [x for x in cl1 if 'G' in x[-1] and '5' in x[-1]]
-# print(bel51)
+print(bel51)
 bel52 = [x for x in cl2 if 'G' in x[-1] and '5' in x[-1]]
-# print(bel52)
+print(bel52)
 a1 = p2[0]
 a2 = p1[1]
 print(int(a1 * 10000), int(a2 * 10000))
@@ -92,11 +92,11 @@ p1 = center(cl1)
 p2 = center(cl2)
 p3 = center(cl3)
 yrg1 = [x for x in cl1 if 'II' in x[-1] and 'V' not in x[-1] and 'III' not in x[-1]]
-# print(yrg1)
+print(yrg1)
 yrg2 = [x for x in cl2 if 'II' in x[-1] and 'V' not in x[-1] and 'III' not in x[-1]]
-# print(yrg2)
+print(yrg2)
 yrg3 = [x for x in cl3 if 'II' in x[-1] and 'V' not in x[-1] and 'III' not in x[-1]]
-# print(yrg3)
+print(yrg3)
 b1 = sum([dist(p2[:-1], x[:-1]) for x in yrg2]) / len(yrg2)
 b2 = sum([dist(p1[:-1], x[:-1]) for x in yrg1]) / len(yrg1)
 print(int(b1 * 10000), int(b2 * 10000))
