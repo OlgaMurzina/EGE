@@ -3,13 +3,20 @@
 элементов последовательности, в которых хотя бы одно число оканчивается на 6 и делится на 3. Затем - минимальное
 число в паре среди всех таких пар. В данной задаче под парой подразумевается два идущих подряд элемента последовательности.
 Например, для последовательности 306; 36; -15; -6; 2; 16 ответом будет пара чисел: 4 и -15.'''
-
-data = [int(x) for x in open('17-1.txt').readlines()]
+'''
+data = [int(x) for x in open('17-1.txt', 'r').readlines()]
 # print(data)
 
 ans = []
 for i in range(len(data) - 1):
-    if (data[i] % 3 == 0 and abs(data[i]) % 10 == 6) or (data[i + 1] % 3 == 0 and str(data[i + 1])[-1] == '6'):
+    if ((data[i] % 3 == 0
+         and abs(data[i]) % 10 == 6)
+            or (data[i + 1] % 3 == 0
+                and str(data[i + 1])[-1] == '6')):
         ans.append(min(data[i], data[i + 1]))
-print(len(ans), min(ans))
-print(abs(-96) % 10, 96 % 10)
+print(len(ans), min(ans))'''
+print()
+
+print(f'-196 % 100 = {-196 % 10}')
+print(f'196 % 100 = {196 % 100}')
+print(f'abs(-196) % 100 = {abs(-196) % 100}')

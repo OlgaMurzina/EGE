@@ -11,4 +11,4 @@ pattern = r'(?:(?:[789][0789]*|0)[-\*])+(?:[789][0789]*|0)'
 t = open('355_24.txt').read().strip()
 print(t[:100])
 ans = sorted([(len(x), x) for x in re.findall(pattern, t)], reverse=True)
-print(ans[:5])
+print(*ans[:5], sep='\n')

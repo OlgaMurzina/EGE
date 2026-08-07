@@ -14,3 +14,5 @@ for x in ip_net.hosts():
         print(hex(int(x))[2:])
         k += 1
 print(k)
+
+print(type(ip_net), type(x))

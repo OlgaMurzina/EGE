@@ -4,23 +4,20 @@
 подпоследовательность в этом файле, запишите в ответе номер символа в файле, с которого она начинается (нумерация
 символов начинается с 1). Если таких последовательностей несколько, используйте первую из них.'''
 
-t = open('24-11.txt').read()
-print(t[:100], len(t))
+t = open('24-11.txt').read().strip()
+print(set(t))
 
-ans = []
-s = t[0]
-st = 1
-for i in range(len(t) - 1):
-    # запрос на то, чтобы номер элемента в аскии-таблице был больше
-    if ord(t[i]) < ord(t[i + 1]):
-        s += t[i + 1]
-    else:
-        ans.append((len(s), st, s))
-        st = i + 1 + 1
-        s = t[i + 1]
-ans.append((len(s), s))
-print(max(ans))
-print()
-for x in ans:
-    if x[0] == 7:
-        print(x)
+m = 0
+p = None
+for l in range(len(t)):
+    f = 1
+    for r in range(l + m, len(t)):
+        s = t[l: r + 1]
+        if s == ''.join(sorted(set(s))):
+            if len(s) > m:
+                m = len(s)
+                p = l + 1
+                print(l, r, s)
+        else:
+            break
+print(m, p)
