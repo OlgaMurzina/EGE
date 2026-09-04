@@ -38,7 +38,7 @@ print()
 
 t1 = datetime.now()
 # все простые числа в интервале до 1_000_000, содержащие '16'
-prime = [x for x in range(3, 1_000_000, 2) if isprime(x) and str(x).count('16') == 1]
+prime = [x for x in range(161, 1_000_000, 2) if isprime(x) and str(x).count('16') == 1]
 print(prime[:100])
 
 def goody(x):
@@ -64,7 +64,7 @@ print(t2 - t1)
 
 t1 = datetime.now()
 # все простые числа в интервале до 1_000_000, содержащие '16'
-prime = [x for x in range(3, 1_000_000, 2) if isprime(x) and str(x).count('16') == 1]
+prime = [x for x in range(161, 1_000_000, 2) if isprime(x) and str(x).count('16') == 1]
 print(prime[:100])
 
 ans = set()

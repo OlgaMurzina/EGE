@@ -17,8 +17,7 @@ def good(x):
     return[]
 
 
-kv = [x ** 2 for x in range(286, 368)]
-print(kv)
+kv = [x ** 2 for x in range(round(81234 ** 0.5), round(134689 ** 0.5) + 1)]
 for x in kv:
     y = good(x)
     if y:

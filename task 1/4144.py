@@ -6,7 +6,7 @@
 from itertools import permutations
 
 # table = {'str': {1: [4], 2: [3], 3: [4], 4: [2,3,5], 5: [1], 6: [3,5], 7: [1,2]},
-#          'stl': {1: [5, 7], 2: [3, 5, 6], 3: [2, 4, 6], 4: [1,3], 5: [4, 6], 6: [], 7: []}}
+#          'stl': {1: [5, 7], 2: [4, 7], 3: [2, 4, 6], 4: [1,3], 5: [4, 6], 6: [], 7: []}}
 
 table = {'out': {1: [4], 2: [3], 3: [4], 4: [2, 3, 5], 5: [1], 6: [3, 5], 7: [1, 2]},
          'in': {1: [5, 7], 2: [4, 7], 3: [2, 4, 6], 4: [1, 3], 5: [4, 6], 6: [], 7: []}}
@@ -14,15 +14,10 @@ graph = {'in': {'А': set(), 'Б': set('АГ'), 'В': set('АГЕ'), 'Г': set('
                 'Д': set('БК'), 'Е': set('ГК'), 'К': set()},
          'out': {'А': set('ВБ'), 'Б': set('Д'), 'В': set('Г'), 'Г': set('БЕ'),
                  'Д': set('Г'), 'Е': set('В'), 'К': set('ЕД')}}
-print(graph)
 for p in permutations('АБВГДЕК'):
-    tmp = {'in': {p[k - 1]: set(p[x - 1] for x in v) for k, v in table['in'].items()}}
-    for pp in permutations('АБВГДЕК'):
-        tmp.update({'out': {pp[k - 1]: set(pp[x - 1] for x in v) for k, v in table['out'].items()}})
-        print(tmp)
-        # break
-        if tmp == graph:
-            print('1 2 3 4 5 6 7')
-            print(*p)
-    break
+    tmp = {'in': {p[k - 1]: set(p[x - 1] for x in v) for k, v in table['in'].items()},
+           'out': {p[k - 1]: set(p[x - 1] for x in v) for k, v in table['out'].items()}}
+    if tmp == graph:
+        print('1 2 3 4 5 6 7')
+        print(*p)
 
