@@ -38,5 +38,5 @@ for a, b, c, d, e in product([0, 1], repeat=5):
             if all(v(**dict(zip(p, r))) == r[-2] for r in t) and all(u(**dict(zip(p, r))) == r[-1] for r in t):
                 # если соблюдено условие, что все строки получили нужный результат
                 # выводим ответ - ту перестановку имен столбцов, которая подошла
-                print(*p)
+                print(*p, sep='')
 

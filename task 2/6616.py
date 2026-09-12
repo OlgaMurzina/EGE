@@ -9,8 +9,19 @@
 from itertools import product
 
 print('x y z w')
-for x, y, z, w in product([0, 1], repeat=4):
-    f1 = (x <= y) or ((not(w)) == z)
-    f2 = (x <= y) == (w and (not(z)))
-    if f1 == f2:
-        print(x, y, z, w)
+alf = [0, 1]
+# print('x y z w')
+for x in alf:
+    for y in alf:
+        for z in alf:
+            for w in alf:
+# for x, y, z, w in product([0, 1], repeat=4):
+                f1 = (x <= y) or ((not(w)) == z)
+                f2 = (x <= y) == (w and (not(z)))
+                if f1 == f2:
+                    print(x, y, z, w)
+
+
+
+
+
