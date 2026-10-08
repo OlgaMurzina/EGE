@@ -34,7 +34,7 @@ tracer(300)
 k = 0
 for x in range(-379, 29):
     for y in range(-235, 19):
-        if (-379 <= x <= 23 and -235 <= y <= 15) and (0 <= x <= 28 and 0 <= y <= 18):
+        if (-379 <= x <= 23 and -235 <= y <= 15) or (0 <= x <= 28 and 0 <= y <= 18):
             goto(x * m, y * m)
             dot(1, 'blue')
             k += 1

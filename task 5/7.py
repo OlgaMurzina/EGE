@@ -16,3 +16,28 @@ for n in range(25, 120):
     if r > 125:
         print(n)
         break
+
+
+r = '12344321'
+r = r[:len(r)//2] + '0' + r[len(r)//2:]
+print(r)
+
+def fun(n, m):
+    s = ''
+    if n == 0:
+        return '0'
+    alph = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    while n > 0:
+        s = alph[n % m] + s
+        n //= m
+    return s
+
+ans = []
+for n in range(1, 1000):
+    r = fun(n,3)
+    r = r + fun(r.count('2'),3)
+    r = r + fun(r.count('1'),3)
+    r = r + fun(r.count('0'),3)
+    if int(r,3) < 1000:
+        ans.append(n)
+print(max(ans))

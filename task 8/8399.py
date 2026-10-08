@@ -14,7 +14,7 @@ from itertools import *
 
 alf = sorted('КОТЕНА')
 
-sp = [''.join(x) for x in permutations('КОТЕНОК')]
+sp = set([''.join(x) for x in permutations('КОТЕНОК')])
 print(sp)
 
 

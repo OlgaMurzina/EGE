@@ -38,5 +38,5 @@ for x in range(73, 92):
             goto(x * m, y * m)
             dot(2, 'red')
             k += 1
-print(k)    
+print(k)
 done()
