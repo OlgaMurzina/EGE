@@ -17,7 +17,7 @@ ans = []
 # k = 1
 for k, s in enumerate(product(alf, repeat=6), 1):
     # k += 1
-    if k % 2:
+    if k % 2 == 1:
         if s[0] not in 'ЦН':
             if s.count('Н') == 1 and s.count('Ц') == 1:
                 ans.append((k, s))

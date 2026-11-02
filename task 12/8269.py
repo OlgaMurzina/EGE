@@ -10,47 +10,50 @@ q2  λSq2  0Sq2  1Rq1
 Определите минимально возможное число единиц в исходной последовательности.'''
 
 from itertools import *
-res = 200
+res = 2
 minn = 10 ** 10
-# for p in product('01', repeat=10):
-#     s = [' '] + list(p) + [' ']
-s = [' '] + list('001111' * 100 + '0' * (1000 - 100 * 6)) + [' ']
-st = s.copy()
-q = 0
-i = 0
-while True:
-    if q == 0:
-        if s[i] == ' ':
-            s[i] = ' '
-            i += 1
-            q = 1
-    elif q == 1:
-        if s[i] == ' ':
-            s[i] = ' '
-            break
-        elif s[i] == '0':
-            s[i] = '1'
-            i += 1
-            q = 2
-        elif s[i] == '1':
-            s[i] = '0'
-            i += 1
-            q = 2
-    elif q == 2:
-        if s[i] == ' ':
-            s[i] = ' '
-            break
-        elif s[i] == '0':
-            s[i] = '0'
-            break
-        elif s[i] == '1':
-            s[i] = '1'
-            i += 1
-            q = 1
-print(s.count('0'))
-# if s.count('0') == res:
-#     if s.count('1') < minn:
-#         minn = s.count('1')
-#         x = s.copy()
-#         y = st.copy()
-# print(minn, ''.join(y), ''.join(x))
+for p in product('01', repeat=10):
+    s = [' '] + list(p) + [' ']
+    # s = [' '] + list('001111' * 100 + '0' * (1000 - 100 * 6)) + [' ']
+    st = s.copy()
+    q = 0
+    i = 0
+    while True:
+        if q == 0:
+            if s[i] == ' ':
+                s[i] = ' '
+                i += 1
+                q = 1
+        elif q == 1:
+            if s[i] == ' ':
+                s[i] = ' '
+                break
+            elif s[i] == '0':
+                s[i] = '1'
+                i += 1
+                q = 2
+            elif s[i] == '1':
+                s[i] = '0'
+                i += 1
+                q = 2
+        elif q == 2:
+            if s[i] == ' ':
+                s[i] = ' '
+                break
+            elif s[i] == '0':
+                s[i] = '0'
+                break
+            elif s[i] == '1':
+                s[i] = '1'
+                i += 1
+                q = 1
+    # print(''.join(st), ''.join(s), s.count('0'))
+    y = []
+    x = []
+    if s.count('0') == res:
+        if s.count('1') < minn:
+            minn = s.count('1')
+            x = s.copy()
+            y = st.copy()
+    if x and y:
+        print(minn, ''.join(y), ''.join(x))

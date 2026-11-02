@@ -10,8 +10,8 @@ gl = 'ИАЭ'
 sgl = 'ДГШ'
 ans = []
 for s in product(alf, repeat=5):
-    sl = ''.join(s)
-    if sl[0] not in gl:
-        if sl[-1] not in sgl:
-            ans.append(sl)
+    # sl = ''.join(s)
+    if s[0] not in gl:
+        if s[-1] not in sgl:
+            ans.append(s)
 print(len(ans), len(set(ans)))

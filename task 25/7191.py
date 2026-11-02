@@ -17,7 +17,7 @@ def isprime(x):
 
 mask = '7*15?3*7'
 
-for x in range(716372, 10 ** 9, 2267):
+for x in range(715037 // 2267 * 2267, 10 ** 9, 2267):
     if fnmatch(str(x), mask):
         s = sum([int(a) for a in str(x)])
         if isprime(s):
