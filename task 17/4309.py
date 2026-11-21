@@ -4,13 +4,15 @@
 наименьшего числа больше 1000, затем минимальную сумму элементов таких четвёрок. В данной задаче под четвёркой
 подразумевается четыре идущих подряд элемента последовательности.'''
 
-data = [int(x) for x in open('/home/dmurzin/Downloads/17-3.txt').readlines()]
+data = [int(x) for x in open('17-3.txt').readlines()]
 print(data)
 ans = []
 for i in range(len(data) - 3):
     four = data[i:i + 4]
     four_sort = sorted(four)[::-1]
-    if four == four_sort:    # числа идут в порядке убывания
-        if four[0] - four[-1] > 1000:  # при этом разность наибольшего и наименьшего числа больше 1000
+    # числа идут в порядке убывания
+    if four == four_sort and len(set(four)) == 4:
+        # при этом разность наибольшего и наименьшего числа больше 1000
+        if four[0] - four[-1] > 1000:
             ans.append(sum(four))
 print(len(ans), min(ans))

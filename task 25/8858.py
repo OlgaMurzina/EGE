@@ -50,3 +50,20 @@ for x, y in ans:
     print(x, y)
 t2 = datetime.now()
 print(t2 - t1)
+
+t1 = datetime.now()
+# формируем квадраты с запасом
+kv = [x ** 2 for x in range(9973, 500_000, 9973)]
+ans = []
+# идем только по сформированным квадратам
+for x in kv:
+    y = good(x)
+    if y:
+        ans.append((x, y))
+    if len(ans) == 5:
+        break
+# удобный для копирования ответа вывод, если хранили в ans
+for x, y in ans:
+    print(x, y)
+t2 = datetime.now()
+print(t2 - t1)

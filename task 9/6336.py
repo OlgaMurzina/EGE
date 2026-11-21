@@ -9,18 +9,17 @@ data_all = []
 for st in data1:
     s = [int(x) for x in st.split(';')]
     data.append(s)
-    data_all.extend(s)
+    data_all += s
 print(data[:5])
 print(data_all[:30])
 
-'''
 ans = []
 for st in data:
     k = 0
     for y in st:
         if st.count(y) == 1:
-            if data2.count(y) == 8:
+            if data_all.count(y) == 8:
                 k += 1
     if k > 0:
         ans.append(st)
-print(len(ans))'''
+print(len(ans))
